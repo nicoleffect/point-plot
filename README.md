@@ -8,7 +8,9 @@ dots to dots connect
 // html
 <canvas id="canvas"></canvas>
 
-// js
+// js 
+
+// npm install dots-connect
 import dotsConnect from 'dots-connect'
 
  dotsConnect({ 
