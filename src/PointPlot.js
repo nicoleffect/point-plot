@@ -2,7 +2,7 @@
 import Dot from './Point'
 import { isMobile, getPixelRatio, isOutside } from './utils'
 
-class LineConnect {
+class PointPlot {
   constructor ({ canvas, color, r, distance, isAnim, isOnClick, isOnMove }) {
     // console.log(canvas.getBoundingClientRect())
     const canvas_rect = canvas.getBoundingClientRect()
@@ -137,4 +137,4 @@ class LineConnect {
   }
 }
 
-export default LineConnect
+export default PointPlot

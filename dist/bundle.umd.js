@@ -1,5 +1,5 @@
 /*!
- * Dots and Line Connect v1.0.0
+ * Dots and Line Connect v1.0.1
  * (c) 2018-2019 NW
  * Released under the MIT License.
  */
@@ -358,10 +358,10 @@
     return Dot;
   }();
 
-  var LineConnect =
+  var PointPlot =
   /*#__PURE__*/
   function () {
-    function LineConnect(_ref) {
+    function PointPlot(_ref) {
       var canvas = _ref.canvas,
           color = _ref.color,
           r = _ref.r,
@@ -370,7 +370,7 @@
           isOnClick = _ref.isOnClick,
           isOnMove = _ref.isOnMove;
 
-      classCallCheck(this, LineConnect);
+      classCallCheck(this, PointPlot);
 
       // console.log(canvas.getBoundingClientRect())
       var canvas_rect = canvas.getBoundingClientRect();
@@ -410,7 +410,7 @@
 
     }
 
-    createClass(LineConnect, [{
+    createClass(PointPlot, [{
       key: "initDot",
       value: function initDot(tx, ty) {
         var dot = new Dot({
@@ -536,7 +536,7 @@
       }
     }]);
 
-    return LineConnect;
+    return PointPlot;
   }();
 
   var pointPlot = function pointPlot(_ref) {
@@ -553,7 +553,7 @@
         isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
         _ref$isOnMove = _ref.isOnMove,
         isOnMove = _ref$isOnMove === void 0 ? true : _ref$isOnMove;
-    return new LineConnect({
+    return new PointPlot({
       canvas: canvas,
       color: color,
       r: r,
