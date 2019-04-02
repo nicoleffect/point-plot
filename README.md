@@ -1,4 +1,3 @@
 # dots-connect
-
-## Demo
-[go](https://nicolesite.github.io/dots-connect/)
+dots to dots connect
+[demo](https://nicolesite.github.io/dots-connect/)
