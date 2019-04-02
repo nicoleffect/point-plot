@@ -3,7 +3,7 @@ import Dot from './Dot'
 import { isMobile, getPixelRatio, isOutside } from './utils'
 
 class LineConnect {
-  constructor ({ canvas, color, r, distance, isAnim = true, isOnClick = true, isOnMove = true }) {
+  constructor ({ canvas, color, r, distance, isAnim, isOnClick, isOnMove }) {
     // console.log(canvas.getBoundingClientRect())
     const canvas_rect = canvas.getBoundingClientRect()
     const canvas_width = canvas_rect.width

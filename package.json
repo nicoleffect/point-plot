@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/nicolesite/dots-connect"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

@@ -21,8 +21,8 @@ const baseOutput = {
   // sourcemap: true
 }
 
-// const formatList = ['amd', 'cjs', 'es', 'iife', 'umd']
-const formatList = ['amd', 'cjs', 'es', 'iife']
+const formatList = ['amd', 'cjs', 'es', 'iife', 'umd']
+// const formatList = ['amd', 'cjs', 'es', 'iife']
 // const formatList = ['es']
 
 function getOutputs () {

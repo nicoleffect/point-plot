@@ -362,12 +362,9 @@ define(function () { 'use strict';
           color = _ref.color,
           r = _ref.r,
           distance = _ref.distance,
-          _ref$isAnim = _ref.isAnim,
-          isAnim = _ref$isAnim === void 0 ? true : _ref$isAnim,
-          _ref$isOnClick = _ref.isOnClick,
-          isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
-          _ref$isOnMove = _ref.isOnMove,
-          isOnMove = _ref$isOnMove === void 0 ? true : _ref$isOnMove;
+          isAnim = _ref.isAnim,
+          isOnClick = _ref.isOnClick,
+          isOnMove = _ref.isOnMove;
 
       classCallCheck(this, LineConnect);
 
@@ -544,12 +541,21 @@ define(function () { 'use strict';
         _ref$r = _ref.r,
         r = _ref$r === void 0 ? 4 : _ref$r,
         _ref$distance = _ref.distance,
-        distance = _ref$distance === void 0 ? 100 : _ref$distance;
+        distance = _ref$distance === void 0 ? 100 : _ref$distance,
+        _ref$isAnim = _ref.isAnim,
+        isAnim = _ref$isAnim === void 0 ? true : _ref$isAnim,
+        _ref$isOnClick = _ref.isOnClick,
+        isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
+        _ref$isOnMove = _ref.isOnMove,
+        isOnMove = _ref$isOnMove === void 0 ? true : _ref$isOnMove;
     return new LineConnect({
       canvas: canvas,
       color: color,
       r: r,
-      distance: distance
+      distance: distance,
+      isAnim: isAnim,
+      isOnClick: isOnClick,
+      isOnMove: isOnMove
     });
   };
 
