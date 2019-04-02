@@ -31,7 +31,7 @@ function getOutputs () {
     let item = {
       file: 'dist/bundle.' + i + '.js',
       format: i,
-      name: 'dotsConnect',
+      name: 'pointPlot',
     }
     arr.push(Object.assign(item, baseOutput))
   }

@@ -1,9 +1,9 @@
 /*!
- * Dots and Line Connect v1.0.1
+ * Dots and Line Connect v1.0.0
  * (c) 2018-2019 NW
  * Released under the MIT License.
  */
-var dotsConnect = (function () {
+var pointPlot = (function () {
   'use strict';
 
   function _classCallCheck(instance, Constructor) {
@@ -420,6 +420,7 @@ var dotsConnect = (function () {
           ty: ty
         });
         this.dots_arr.push(dot);
+        console.log(this.dots_arr);
       }
     }, {
       key: "anim",
@@ -484,7 +485,7 @@ var dotsConnect = (function () {
         var event = isMobile ? 'touchstart' : 'click';
 
         var _createDot = function _createDot(e) {
-          console.log(e);
+          // console.log(e)
           var touch = isMobile ? e.touches[0] : e;
           var tx = touch.pageX;
           var ty = touch.pageY;
@@ -535,7 +536,7 @@ var dotsConnect = (function () {
     return LineConnect;
   }();
 
-  var dotsConnect = function dotsConnect(_ref) {
+  var pointPlot = function pointPlot(_ref) {
     var canvas = _ref.canvas,
         _ref$color = _ref.color,
         color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
@@ -560,6 +561,6 @@ var dotsConnect = (function () {
     });
   };
 
-  return dotsConnect;
+  return pointPlot;
 
 }());

@@ -1,5 +1,5 @@
 {
-  "name": "dots-connect",
+  "name": "point-plot",
   "version": "1.0.0",
   "description": "Dots to Dots Connect",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolesite/dots-connect"
+    "url": "https://github.com/nicolesite/point-plot"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

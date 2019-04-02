@@ -535,7 +535,7 @@ define(function () { 'use strict';
     return LineConnect;
   }();
 
-  var dotsConnect = function dotsConnect(_ref) {
+  var pointPlot = function pointPlot(_ref) {
     var canvas = _ref.canvas,
         _ref$color = _ref.color,
         color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
@@ -560,6 +560,6 @@ define(function () { 'use strict';
     });
   };
 
-  return dotsConnect;
+  return pointPlot;
 
 });

@@ -1,5 +1,5 @@
 
-import Dot from './Dot'
+import Dot from './Point'
 import { isMobile, getPixelRatio, isOutside } from './utils'
 
 class LineConnect {

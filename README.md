@@ -1,6 +1,6 @@
-# dots-connect
+# point-plot
 dots to dots connect
-[demo](https://nicolesite.github.io/dots-connect/)
+[demo](https://nicolesite.github.io/point-plot/)
 
 ## examples
 
@@ -8,12 +8,12 @@ dots to dots connect
 // html
 <canvas id="canvas"></canvas>
 
-// js 
+// js
 
-// npm install dots-connect
-import dotsConnect from 'dots-connect'
+// npm install point-plot
+import pointPlot from 'point-plot'
 
- dotsConnect({ 
+ pointPlot({
   canvas: document.getElementById('canvas'), // require
   color: '255,255,255', // default
   r: 4, // defalut
@@ -28,7 +28,7 @@ import dotsConnect from 'dots-connect'
 <script src="../dist/bundle.iife.js"></script>
 <script>
   const canvas = document.getElementById('canvas')
-  dotsConnect({ canvas })
+  pointPlot({ canvas })
 </script>
 
 ```

@@ -3,7 +3,7 @@
  * (c) 2018-2019 NW
  * Released under the MIT License.
  */
-var dotsConnect = (function () {
+var pointPlot = (function () {
   'use strict';
 
   function _classCallCheck(instance, Constructor) {
@@ -536,7 +536,7 @@ var dotsConnect = (function () {
     return LineConnect;
   }();
 
-  var dotsConnect = function dotsConnect(_ref) {
+  var pointPlot = function pointPlot(_ref) {
     var canvas = _ref.canvas,
         _ref$color = _ref.color,
         color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
@@ -561,6 +561,6 @@ var dotsConnect = (function () {
     });
   };
 
-  return dotsConnect;
+  return pointPlot;
 
 }());

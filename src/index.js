@@ -1,8 +1,8 @@
-import DotsConnect from './DotsConnect'
+import PointPlot from './PointPlot'
 
 
-const dotsConnect = ({ canvas, color = '255, 255, 255', r = 4, distance = 100, isAnim = true, isOnClick = true, isOnMove = true }) => {
-  return new DotsConnect({ canvas, color, r, distance, isAnim, isOnClick, isOnMove })
+const pointPlot = ({ canvas, color = '255, 255, 255', r = 4, distance = 100, isAnim = true, isOnClick = true, isOnMove = true }) => {
+  return new PointPlot({ canvas, color, r, distance, isAnim, isOnClick, isOnMove })
 }
 
-export default dotsConnect
+export default pointPlot
