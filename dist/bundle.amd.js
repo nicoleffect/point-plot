@@ -1,5 +1,5 @@
 /*!
- * Dots and Line Connect v1.0.1
+ * Dots and Line Connect v1.0.0
  * (c) 2018-2019 NW
  * Released under the MIT License.
  */
@@ -419,6 +419,7 @@ define(function () { 'use strict';
           ty: ty
         });
         this.dots_arr.push(dot);
+        console.log(this.dots_arr);
       }
     }, {
       key: "anim",
@@ -483,7 +484,7 @@ define(function () { 'use strict';
         var event = isMobile ? 'touchstart' : 'click';
 
         var _createDot = function _createDot(e) {
-          console.log(e);
+          // console.log(e)
           var touch = isMobile ? e.touches[0] : e;
           var tx = touch.pageX;
           var ty = touch.pageY;

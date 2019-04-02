@@ -45,6 +45,7 @@ class LineConnect {
   initDot (tx, ty) {
     const dot = new Dot({ ctx: this.ctx, rect: this.rect, d: this.dots_distance, color: this.color, r: this.r, tx, ty })
     this.dots_arr.push(dot)
+    console.log(this.dots_arr)
   }
   anim () {
     const requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
@@ -97,7 +98,7 @@ class LineConnect {
   onClick () {
     const event = isMobile ? 'touchstart' : 'click'
     const _createDot = (e) => {
-      console.log(e)
+      // console.log(e)
       const touch = isMobile ? e.touches[0] : e
       const tx = touch.pageX
       const ty = touch.pageY
