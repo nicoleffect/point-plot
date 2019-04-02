@@ -22,7 +22,7 @@ const baseOutput = {
 }
 
 const formatList = ['amd', 'cjs', 'es', 'iife', 'umd']
-// const formatList = ['amd', 'cjs', 'es', 'iife']
+// const formatList = ['amd', 'cjs', 'iife']
 // const formatList = ['es']
 
 function getOutputs () {
