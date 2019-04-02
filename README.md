@@ -23,5 +23,10 @@ import dotsConnect from 'dots-connect'
 
 // or
 
-dotsConnect({canvas: document.getElementById('canvas')})
+<script src="../dist/bundle.iife.js"></script>
+<script>
+  const canvas = document.getElementById('canvas')
+  dotsConnect({ canvas })
+</script>
+
 ```
