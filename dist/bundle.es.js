@@ -386,7 +386,7 @@ function () {
     this.ctx.scale(pixelRatio, pixelRatio);
     this.ctx.translate(1 / pixelRatio, 1 / pixelRatio);
 
-    for (var i = 0; i < Math.floor(this.dots_count / 1.5); i++) {
+    for (var i = 0; i < Math.floor(this.dots_count); i++) {
       this.initDot();
     }
 
@@ -491,11 +491,10 @@ function () {
           return;
         }
 
-        _this2.initDot(tx, ty);
+        _this2.initDot(tx, ty); // if (this.dots_arr.length > this.dots_count) {
+        //   this.dots_arr.shift()
+        // }
 
-        if (_this2.dots_arr.length > _this2.dots_count) {
-          _this2.dots_arr.shift();
-        }
       };
 
       document.addEventListener(event, _createDot);

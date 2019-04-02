@@ -25,7 +25,7 @@ class PointPlot {
 
     this.ctx.scale(pixelRatio, pixelRatio)
     this.ctx.translate(1 / pixelRatio, 1 / pixelRatio)
-    for (let i = 0; i < Math.floor(this.dots_count / 1.5); i++) {
+    for (let i = 0; i < Math.floor(this.dots_count); i++) {
       this.initDot()
     }
 
@@ -45,7 +45,7 @@ class PointPlot {
   initDot (tx, ty) {
     const dot = new Dot({ ctx: this.ctx, rect: this.rect, d: this.dots_distance, color: this.color, r: this.r, tx, ty })
     this.dots_arr.push(dot)
-    console.log(this.dots_arr)
+    // console.log(this.dots_arr)
   }
   anim () {
     const requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
@@ -108,9 +108,9 @@ class PointPlot {
       this.initDot(
         tx, ty
       )
-      if (this.dots_arr.length > this.dots_count) {
-        this.dots_arr.shift()
-      }
+      // if (this.dots_arr.length > this.dots_count) {
+      //   this.dots_arr.shift()
+      // }
     }
     document.addEventListener(event, _createDot)
   }

@@ -1,6 +1,6 @@
 {
   "name": "point-plot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dots to Dots Connect",
   "scripts": {
     "dev": "rollup -c -w",
