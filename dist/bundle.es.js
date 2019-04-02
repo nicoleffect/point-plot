@@ -1,5 +1,5 @@
 /*!
- * Dots and Line Connect v1.0.1
+ * Dots and Line Connect v1.0.2
  * (c) 2018-2019 NW
  * Released under the MIT License.
  */
