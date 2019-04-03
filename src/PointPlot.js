@@ -85,7 +85,7 @@ class PointPlot {
               ctx.beginPath()
               ctx.moveTo(ix, iy)
               ctx.lineTo(jx, jy)
-              ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')'
+              ctx.strokeStyle = `rgba(${_this.color},${Math.round((d - s) / d * 10) / 10})`
               ctx.strokeWidth = 1
               ctx.stroke()
               ctx.closePath()

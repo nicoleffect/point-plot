@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.0.5
+ * point-plot v1.0.6
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -1015,7 +1015,7 @@ var pointPlot = (function () {
 	                ctx.beginPath();
 	                ctx.moveTo(ix, iy);
 	                ctx.lineTo(jx, jy);
-	                ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')';
+	                ctx.strokeStyle = "rgba(".concat(_this.color, ",").concat(Math.round((d - s) / d * 10) / 10, ")");
 	                ctx.strokeWidth = 1;
 	                ctx.stroke();
 	                ctx.closePath();
@@ -1089,7 +1089,7 @@ var pointPlot = (function () {
 	      _ref$color = _ref.color,
 	      color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
 	      _ref$r = _ref.r,
-	      r = _ref$r === void 0 ? 4 : _ref$r,
+	      r = _ref$r === void 0 ? 3 : _ref$r,
 	      _ref$distance = _ref.distance,
 	      distance = _ref$distance === void 0 ? 100 : _ref$distance,
 	      _ref$isConnect = _ref.isConnect,
