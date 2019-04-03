@@ -2,13 +2,13 @@
 
 dots to dots connect
 
+[demo](https://nicolesite.github.io/point-plot/examples/index.html)
+
 ## mode
 
 ```
 amd、cjs、es、iife、umd
 ```
-
-[demo](https://nicolesite.github.io/point-plot/examples/index.html)
 
 ## examples
 
