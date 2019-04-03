@@ -18,25 +18,21 @@ const pluginsList = {
   dev: [],
   test: [],
   prod: [uglify({
+    compress: {
+      drop_console: true
+    },
     output: {
-      comments: function (node, comment) {
-        console.log(JSON.stringify(comment))
-        if (comment.type === 'comment2') {
-          // multiline comment
-          return /@preserve|@license|@cc_on/i.test(comment.value)
-        }
-        return false
-      }
+      comments: /Nicole Wong|License/i
     }
   })]
 }
 
-const copyright = new Date().getFullYear() > 2018 ? '2018-' + new Date().getFullYear() : 2018
+const copyright = new Date().getFullYear() > 2019 ? '2019-' + new Date().getFullYear() : 2019
 
 const banner =
   '/*!\n' +
-  ` * ${name}v${version}\n` +
-  ` * (c) 2019-${new Date().getFullYear()} Nicole Wong\n` +
+  ` * ${name} v${version}\n` +
+  ` * (c) ${copyright} Nicole Wong\n` +
   ' * Released under the MIT License.\n' +
   ' */\n' +
   '\n' +
@@ -56,7 +52,6 @@ function getOutputs (env) {
   let arr = []
   const list = formList[env]
   for (let i of list) {
-
     let item = {
       file: `dist/point-plot.${i}${suffix}.js`,
       format: i,

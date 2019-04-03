@@ -1,6 +1,6 @@
 {
   "name": "point-plot",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "dot and line, dots to dots connect",
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:dev -w",
@@ -38,10 +38,8 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-replace": "^2.1.1",
-    "rollup-plugin-uglify": "^6.0.2",
-    "uglify-es": "^3.3.9"
+    "rollup-plugin-uglify": "^6.0.2"
   },
-  "dependencies": {},
   "directories": {
     "example": "examples"
   },
