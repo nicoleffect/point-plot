@@ -1,8 +1,14 @@
 /*!
- * Dots and Line Connect v1.0.2
- * (c) 2018-2019 NW
+ * point-plot v1.0.4
+ * (c) 2018-2019 Nicole Wong
  * Released under the MIT License.
  */
+/*
+ * github: https://github.com/nicolesite/point-plot
+ * demo: https://nicolesite.github.io/point-plot/examples/index.html
+ */
+'use strict';
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -416,8 +422,7 @@ function () {
         tx: tx,
         ty: ty
       });
-      this.dots_arr.push(dot);
-      console.log(this.dots_arr);
+      this.dots_arr.push(dot); // console.log(this.dots_arr)
     }
   }, {
     key: "anim",
@@ -557,4 +562,4 @@ var pointPlot = function pointPlot(_ref) {
   });
 };
 
-export default pointPlot;
+module.exports = pointPlot;

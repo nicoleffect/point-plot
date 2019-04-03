@@ -1,6 +1,14 @@
 # point-plot
+
 dots to dots connect
-[demo](https://nicolesite.github.io/point-plot/)
+
+## mode
+
+```
+amd、cjs、es、iife、umd
+```
+
+[demo](https://nicolesite.github.io/point-plot/examples/index.html)
 
 ## examples
 
@@ -25,7 +33,7 @@ import pointPlot from 'point-plot'
 
 // or
 
-<script src="../dist/bundle.iife.js"></script>
+<script src="https://nicolesite.github.io/point-plot/dist/point-plot.umd.min.js"></script>
 <script>
   const canvas = document.getElementById('canvas')
   pointPlot({ canvas })

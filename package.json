@@ -1,13 +1,25 @@
 {
   "name": "point-plot",
-  "version": "1.0.3",
-  "description": "Dots to Dots Connect",
+  "version": "1.0.4",
+  "description": "dot and line, dots to dots connect",
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c"
+    "dev": "rollup -c --environment NODE_ENV:dev -w",
+    "test": "rollup -c --environment NODE_ENV:test",
+    "build": "rollup -c --environment NODE_ENV:prod"
   },
   "main": "index.js",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicolesite/point-plot/issues"
+  },
+  "homepage": "https://nicolesite.github.io/point-plot/examples/index.html",
+  "keywords": [
+    "dot",
+    "line",
+    "connect",
+    "point",
+    "plot"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nicolesite/point-plot"
@@ -26,7 +38,8 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-replace": "^2.1.1",
-    "rollup-plugin-uglify": "^6.0.2"
+    "rollup-plugin-uglify": "^6.0.2",
+    "uglify-es": "^3.3.9"
   },
   "dependencies": {},
   "directories": {
