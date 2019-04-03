@@ -1,6 +1,6 @@
 {
   "name": "point-plot",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "dot and line, dots to dots connect",
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:dev -w",

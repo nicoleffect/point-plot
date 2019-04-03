@@ -27,7 +27,7 @@ import pointPlot from 'point-plot'
   r: 4, // defalut
   distance: 100, // defarlt
   isAnim: true, // default
-  isOnClick: true // default
+  isOnClick: true, // default
   isOnMove: true// default
  })
 
