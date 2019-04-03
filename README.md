@@ -1,8 +1,8 @@
 # point-plot
 
-dots to dots connect
+dot and line, dots to dots connect
 
-[demo](https://nicolesite.github.io/point-plot/examples/index.html)
+[demo -->](https://nicolesite.github.io/point-plot/examples/index.html)
 
 ## mode
 
