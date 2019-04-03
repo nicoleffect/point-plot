@@ -3,7 +3,6 @@ import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import { uglify } from 'rollup-plugin-uglify'
-import { minify } from 'uglify-es'
 import { eslint } from 'rollup-plugin-eslint'
 import { version, name, repository, homepage } from './package.json'
 import replace from 'rollup-plugin-replace'
@@ -18,27 +17,32 @@ const formList = {
 const pluginsList = {
   dev: [],
   test: [],
-  prod: [uglify(
-    {
-      compress: {
-        drop_console: true
+  prod: [uglify({
+    output: {
+      comments: function (node, comment) {
+        console.log(JSON.stringify(comment))
+        if (comment.type === 'comment2') {
+          // multiline comment
+          return /@preserve|@license|@cc_on/i.test(comment.value)
+        }
+        return false
       }
-    },
-    minify
-  )]
+    }
+  })]
 }
 
 const copyright = new Date().getFullYear() > 2018 ? '2018-' + new Date().getFullYear() : 2018
 
 const banner =
-  `/*!\n` +
-  ' * ' + name + ' v' + version + '\n' +
-  ' * (c) ' + copyright + ' Nicole Wong\n' +
+  '/*!\n' +
+  ` * ${name}v${version}\n` +
+  ` * (c) 2019-${new Date().getFullYear()} Nicole Wong\n` +
   ' * Released under the MIT License.\n' +
   ' */\n' +
+  '\n' +
   '/*\n' +
-  ' * github: ' + repository.url + '\n' +
-  ' * demo: ' + homepage + '\n' +
+  ` * github: ${repository.url}\n` +
+  ` * demo: ${homepage}\n` +
   ' */'
 
 const baseOutput = {

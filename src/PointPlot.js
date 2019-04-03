@@ -3,7 +3,7 @@ import Dot from './Point'
 import { isMobile, getPixelRatio, isOutside } from './utils'
 
 class PointPlot {
-  constructor ({ canvas, color, r, distance, isAnim, isOnClick, isOnMove }) {
+  constructor ({ canvas, color, r, distance, isConnect, isOnClick, isOnMove }) {
     // console.log(canvas.getBoundingClientRect())
     const canvas_rect = canvas.getBoundingClientRect()
     const canvas_width = canvas_rect.width
@@ -29,9 +29,7 @@ class PointPlot {
       this.initDot()
     }
 
-    if (isAnim) {
-      this.anim()
-    }
+    this.anim(isConnect)
 
     if (isOnClick) {
       this.onClick()
@@ -47,7 +45,7 @@ class PointPlot {
     this.dots_arr.push(dot)
     // console.log(this.dots_arr)
   }
-  anim () {
+  anim (isConnect) {
     const requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
     const _this = this
     const {
@@ -57,6 +55,7 @@ class PointPlot {
     const d = this.dots_distance
     const cw = width + d
     const ch = height + d
+
     return (function _animateUpdate () {
       _this.ctx.clearRect(-d, -d, cw, ch) // clear canvas
       const arr = _this.dots_arr
@@ -68,27 +67,30 @@ class PointPlot {
             arr[i].init()
           }
         })
-        for (var j = i + 1; j < arr.length; j++) {
-          const dot_ix = arr[i].dot.x
-          const dot_iy = arr[i].dot.y
-          const dot_jx = arr[j].dot.x
-          const dot_jy = arr[j].dot.y
-          // console.log(arr[i])
-          const s = Math.sqrt(Math.pow(dot_ix - dot_jx, 2) + Math.pow(dot_iy - dot_jy, 2)) // right triangle
+        if (isConnect) {
+          for (var j = i + 1; j < arr.length; j++) {
+            const dot_ix = arr[i].dot.x
+            const dot_iy = arr[i].dot.y
+            const dot_jx = arr[j].dot.x
+            const dot_jy = arr[j].dot.y
+            // console.log(arr[i])
+            const s = Math.sqrt(Math.pow(dot_ix - dot_jx, 2) + Math.pow(dot_iy - dot_jy, 2)) // right triangle
 
-          // console.log(s, d)
-          if (s < d) {
-            const ctx = _this.ctx
-            // draw a line
-            ctx.beginPath()
-            ctx.moveTo(dot_ix, dot_iy)
-            ctx.lineTo(dot_jx, dot_jy)
-            ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')'
-            ctx.strokeWidth = 1
-            ctx.stroke()
-            ctx.closePath()
+            // console.log(s, d)
+            if (s < d) {
+              const ctx = _this.ctx
+              // draw a line
+              ctx.beginPath()
+              ctx.moveTo(dot_ix, dot_iy)
+              ctx.lineTo(dot_jx, dot_jy)
+              ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')'
+              ctx.strokeWidth = 1
+              ctx.stroke()
+              ctx.closePath()
+            }
           }
         }
+
         // console.log(this.dotsArr.length)
 
       }

@@ -1,8 +1,9 @@
 /*!
- * point-plot v1.0.4
- * (c) 2018-2019 Nicole Wong
+ * point-plotv1.0.5
+ * (c) 2019-2019 Nicole Wong
  * Released under the MIT License.
  */
+
 /*
  * github: https://github.com/nicolesite/point-plot
  * demo: https://nicolesite.github.io/point-plot/examples/index.html
@@ -366,7 +367,7 @@ define(function () { 'use strict';
           color = _ref.color,
           r = _ref.r,
           distance = _ref.distance,
-          isAnim = _ref.isAnim,
+          isConnect = _ref.isConnect,
           isOnClick = _ref.isOnClick,
           isOnMove = _ref.isOnMove;
 
@@ -396,9 +397,7 @@ define(function () { 'use strict';
         this.initDot();
       }
 
-      if (isAnim) {
-        this.anim();
-      }
+      this.anim(isConnect);
 
       if (isOnClick) {
         this.onClick();
@@ -426,7 +425,7 @@ define(function () { 'use strict';
       }
     }, {
       key: "anim",
-      value: function anim() {
+      value: function anim(isConnect) {
         var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
         var _this = this;
@@ -452,25 +451,27 @@ define(function () { 'use strict';
               }
             });
 
-            for (var j = i + 1; j < arr.length; j++) {
-              var dot_ix = arr[i].dot.x;
-              var dot_iy = arr[i].dot.y;
-              var dot_jx = arr[j].dot.x;
-              var dot_jy = arr[j].dot.y; // console.log(arr[i])
+            if (isConnect) {
+              for (var j = i + 1; j < arr.length; j++) {
+                var dot_ix = arr[i].dot.x;
+                var dot_iy = arr[i].dot.y;
+                var dot_jx = arr[j].dot.x;
+                var dot_jy = arr[j].dot.y; // console.log(arr[i])
 
-              var s = Math.sqrt(Math.pow(dot_ix - dot_jx, 2) + Math.pow(dot_iy - dot_jy, 2)); // right triangle
-              // console.log(s, d)
+                var s = Math.sqrt(Math.pow(dot_ix - dot_jx, 2) + Math.pow(dot_iy - dot_jy, 2)); // right triangle
+                // console.log(s, d)
 
-              if (s < d) {
-                var ctx = _this.ctx; // draw a line
+                if (s < d) {
+                  var ctx = _this.ctx; // draw a line
 
-                ctx.beginPath();
-                ctx.moveTo(dot_ix, dot_iy);
-                ctx.lineTo(dot_jx, dot_jy);
-                ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')';
-                ctx.strokeWidth = 1;
-                ctx.stroke();
-                ctx.closePath();
+                  ctx.beginPath();
+                  ctx.moveTo(dot_ix, dot_iy);
+                  ctx.lineTo(dot_jx, dot_jy);
+                  ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')';
+                  ctx.strokeWidth = 1;
+                  ctx.stroke();
+                  ctx.closePath();
+                }
               }
             } // console.log(this.dotsArr.length)
 
@@ -545,8 +546,8 @@ define(function () { 'use strict';
         r = _ref$r === void 0 ? 4 : _ref$r,
         _ref$distance = _ref.distance,
         distance = _ref$distance === void 0 ? 100 : _ref$distance,
-        _ref$isAnim = _ref.isAnim,
-        isAnim = _ref$isAnim === void 0 ? true : _ref$isAnim,
+        _ref$isConnect = _ref.isConnect,
+        isConnect = _ref$isConnect === void 0 ? false : _ref$isConnect,
         _ref$isOnClick = _ref.isOnClick,
         isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
         _ref$isOnMove = _ref.isOnMove,
@@ -556,7 +557,7 @@ define(function () { 'use strict';
       color: color,
       r: r,
       distance: distance,
-      isAnim: isAnim,
+      isConnect: isConnect,
       isOnClick: isOnClick,
       isOnMove: isOnMove
     });
