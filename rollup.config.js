@@ -22,7 +22,7 @@ const pluginsList = {
       drop_console: true
     },
     output: {
-      comments: /Nicole Wong|License/i
+      comments: /!|Nicole Wong|License/i
     }
   })]
 }
