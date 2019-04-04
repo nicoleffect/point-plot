@@ -780,9 +780,27 @@ var createClass = _createClass;
 var isMobile = function () {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
 }();
+
 function getPixelRatio(ctx) {
   var backingStore = ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
   return (window.devicePixelRatio || 1) / backingStore;
+}
+
+function setContext(canvas) {
+  var rect = canvas.getBoundingClientRect();
+  var width = rect.width;
+  var height = rect.height;
+  var ctx = canvas.getContext('2d');
+  var pixelRatio = getPixelRatio(ctx); // console.log(pixelRatio)
+
+  canvas.width = width * pixelRatio;
+  canvas.height = height * pixelRatio;
+  ctx.scale(pixelRatio, pixelRatio);
+  ctx.translate(1 / pixelRatio, 1 / pixelRatio);
+  return {
+    ctx: ctx,
+    rect: rect
+  };
 }
 function isOutside(x, y, d, rect) {
   var left = rect.left,
@@ -915,25 +933,20 @@ function () {
 
     classCallCheck(this, PointPlot);
 
-    // console.log(canvas.getBoundingClientRect())
-    var canvas_rect = canvas.getBoundingClientRect();
-    var canvas_width = canvas_rect.width;
-    var canvas_height = canvas_rect.height;
-    this.ctx = canvas.getContext('2d');
-    var pixelRatio = getPixelRatio(this.ctx); // console.log(pixelRatio)
+    var _setContext = setContext(canvas),
+        ctx = _setContext.ctx,
+        rect = _setContext.rect;
 
-    canvas.width = canvas_width * pixelRatio;
-    canvas.height = canvas_height * pixelRatio;
-    this.rect = canvas_rect; // this.cw = canvas.width
-    // this.ch = canvas.height
-
-    this.dots_count = Math.floor(canvas_width * canvas_height / (distance * 100));
+    this.ctx = ctx;
+    this.rect = rect;
+    var _this$rect = this.rect,
+        width = _this$rect.width,
+        height = _this$rect.height;
+    this.dots_count = Math.floor(width * height / (distance * 100));
     this.dots_distance = distance;
     this.dots_arr = [];
     this.color = color;
     this.r = r;
-    this.ctx.scale(pixelRatio, pixelRatio);
-    this.ctx.translate(1 / pixelRatio, 1 / pixelRatio);
 
     for (var i = 0; i < this.dots_count; i++) {
       this.initDot();
@@ -971,9 +984,9 @@ function () {
 
       var _this = this;
 
-      var _this$rect = this.rect,
-          width = _this$rect.width,
-          height = _this$rect.height;
+      var _this$rect2 = this.rect,
+          width = _this$rect2.width,
+          height = _this$rect2.height;
       var d = this.dots_distance;
       var cw = width + d;
       var ch = height + d;
