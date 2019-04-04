@@ -2,7 +2,7 @@ export const isMobile = (() => {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent)
 })()
 
-export const getPixelRatio = (ctx) => {
+export function getPixelRatio (ctx) {
   var backingStore = ctx.backingStorePixelRatio ||
     ctx.webkitBackingStorePixelRatio ||
     ctx.mozBackingStorePixelRatio ||
@@ -12,7 +12,7 @@ export const getPixelRatio = (ctx) => {
   return (window.devicePixelRatio || 1) / backingStore
 }
 
-export const isOutside = (x, y, d, rect) => {
+export function isOutside (x, y, d, rect) {
   const {
     left,
     right,

@@ -782,11 +782,11 @@ var createClass = _createClass;
 var isMobile = function () {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
 }();
-var getPixelRatio = function getPixelRatio(ctx) {
+function getPixelRatio(ctx) {
   var backingStore = ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
   return (window.devicePixelRatio || 1) / backingStore;
-};
-var isOutside = function isOutside(x, y, d, rect) {
+}
+function isOutside(x, y, d, rect) {
   var left = rect.left,
       right = rect.right,
       top = rect.top,
@@ -799,7 +799,7 @@ var isOutside = function isOutside(x, y, d, rect) {
 
 
   return false;
-};
+}
 
 var paintDot = function paintDot(ctx, dot, color) {
   // console.log(dot)
