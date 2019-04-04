@@ -25,9 +25,9 @@ import pointPlot from 'point-plot'
   canvas: document.getElementById('canvas'), // require
   color: '255,255,255', // default
   r: 4, // default
-  distance: 100, // default
-  isConnect: true, // default
-  isOnClick: true, // default
+  distance: 100, // default, distance of dot to dot
+  isConnect: true, // default, if you don't need lines, set it false
+  isOnClick: true, // default, event for click or touchstart
   isOnMove: true// default
  })
 
