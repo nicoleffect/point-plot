@@ -1,29 +1,25 @@
 import Dot from './Point'
-import { isMobile, getPixelRatio, isOutside } from './utils'
+import { isMobile, setContext, isOutside } from './utils'
 
 class PointPlot {
   constructor ({ canvas, color, r, distance, isConnect, isOnClick, isOnMove }) {
-    // console.log(canvas.getBoundingClientRect())
-    const canvas_rect = canvas.getBoundingClientRect()
-    const canvas_width = canvas_rect.width
-    const canvas_height = canvas_rect.height
-    this.ctx = canvas.getContext('2d')
-    const pixelRatio = getPixelRatio(this.ctx)
-    // console.log(pixelRatio)
-    canvas.width = canvas_width * pixelRatio
-    canvas.height = canvas_height * pixelRatio
+    const {
+      ctx,
+      rect
+    } = setContext(canvas)
+    this.ctx = ctx
+    this.rect = rect
+    const {
+      width,
+      height
+    } = this.rect
 
-    this.rect = canvas_rect
-    // this.cw = canvas.width
-    // this.ch = canvas.height
-    this.dots_count = Math.floor(canvas_width * canvas_height / (distance * 100))
+    this.dots_count = Math.floor(width * height / (distance * 100))
     this.dots_distance = distance
     this.dots_arr = []
     this.color = color
     this.r = r
 
-    this.ctx.scale(pixelRatio, pixelRatio)
-    this.ctx.translate(1 / pixelRatio, 1 / pixelRatio)
     for (let i = 0; i < this.dots_count; i++) {
       this.initDot()
     }
