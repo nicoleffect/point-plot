@@ -2,7 +2,7 @@
 
 dot and line, dots to dots connect
 
-[demo -->](https://nicolesite.github.io/point-plot/examples/index.html)
+[demo -->](https://nicoleffect.github.io/point-plot/examples/index.html)
 
 ## mode
 
@@ -33,7 +33,7 @@ import pointPlot from 'point-plot'
 
 // or
 
-<script src="https://nicolesite.github.io/point-plot/dist/point-plot.umd.min.js"></script>
+<script src="https://nicoleffect.github.io/point-plot/dist/point-plot.umd.min.js"></script>
 <script>
   const canvas = document.getElementById('canvas')
   pointPlot({ canvas })

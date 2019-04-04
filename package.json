@@ -1,6 +1,6 @@
 {
   "name": "point-plot",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "dot and line, dots to dots connect",
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:dev -w",
@@ -10,9 +10,9 @@
   "main": "index.js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicolesite/point-plot/issues"
+    "url": "https://github.com/nicoleffect/point-plot/issues"
   },
-  "homepage": "https://nicolesite.github.io/point-plot/examples/index.html",
+  "homepage": "https://nicoleffect.github.io/point-plot/examples/index.html",
   "keywords": [
     "dot",
     "line",
@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolesite/point-plot"
+    "url": "https://github.com/nicoleffect/point-plot"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

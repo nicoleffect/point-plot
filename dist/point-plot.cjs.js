@@ -1,12 +1,12 @@
 /*!
- * point-plot v1.0.6
+ * point-plot v1.0.7
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
 
 /*
- * github: https://github.com/nicolesite/point-plot
- * demo: https://nicolesite.github.io/point-plot/examples/index.html
+ * github: https://github.com/nicoleffect/point-plot
+ * demo: https://nicoleffect.github.io/point-plot/examples/index.html
  */
 'use strict';
 
