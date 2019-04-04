@@ -802,19 +802,19 @@ var pointPlot = (function () {
 	  return false;
 	}
 
-	var paintDot = function paintDot(ctx, dot, color) {
+	function paintDot(dot, color) {
 	  // console.log(dot)
 	  var x = dot.x,
 	      y = dot.y,
 	      r = dot.r;
-	  ctx.fillStyle = 'rgba(' + color + ', 0.8)';
-	  ctx.beginPath();
-	  ctx.arc(x, y, r, 0, Math.PI * 2);
-	  ctx.fill();
-	  ctx.closePath();
-	};
+	  this.fillStyle = 'rgba(' + color + ', 0.8)';
+	  this.beginPath();
+	  this.arc(x, y, r, 0, Math.PI * 2);
+	  this.fill();
+	  this.closePath();
+	}
 
-	var getDot = function getDot(_ref) {
+	function getDot(_ref) {
 	  var rect = _ref.rect,
 	      r = _ref.r,
 	      _ref$x = _ref.x,
@@ -830,7 +830,7 @@ var pointPlot = (function () {
 	    sy: Math.random() * 2 - 1,
 	    r: Math.random() * r
 	  };
-	};
+	}
 
 	var Dot =
 	/*#__PURE__*/
@@ -872,7 +872,7 @@ var pointPlot = (function () {
 	        x: tx,
 	        y: ty
 	      });
-	      paintDot(this.ctx, this.dot, this.color);
+	      paintDot.call(this.ctx, this.dot, this.color);
 	    }
 	  }, {
 	    key: "update",
@@ -897,7 +897,7 @@ var pointPlot = (function () {
 	      this.dot.x = nx;
 	      this.dot.y = ny; // console.log(sx, sy)
 
-	      paintDot(this.ctx, this.dot, this.color);
+	      paintDot.call(this.ctx, this.dot, this.color);
 	    }
 	  }]);
 

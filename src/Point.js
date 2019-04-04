@@ -1,18 +1,18 @@
 import { isOutside } from './utils'
 
-const paintDot = (ctx, dot, color) => {
+function paintDot (dot, color) {
   // console.log(dot)
   const {
     x, y, r
   } = dot
-  ctx.fillStyle = 'rgba(' + color + ', 0.8)'
-  ctx.beginPath()
-  ctx.arc(x, y, r, 0, Math.PI * 2)
-  ctx.fill()
-  ctx.closePath()
+  this.fillStyle = 'rgba(' + color + ', 0.8)'
+  this.beginPath()
+  this.arc(x, y, r, 0, Math.PI * 2)
+  this.fill()
+  this.closePath()
 }
 
-const getDot = ({ rect, r, x = '', y = '' }) => {
+function getDot ({ rect, r, x = '', y = '' }) {
   const {
     width,
     height
@@ -38,7 +38,7 @@ class Dot {
   }
   init (tx = '', ty = '') {
     this.dot = getDot({ rect: this.rect, r: this.r, x: tx, y: ty })
-    paintDot(this.ctx, this.dot, this.color)
+    paintDot.call(this.ctx, this.dot, this.color)
   }
   update (callback) {
     const {
@@ -56,7 +56,7 @@ class Dot {
     this.dot.x = nx
     this.dot.y = ny
     // console.log(sx, sy)
-    paintDot(this.ctx, this.dot, this.color)
+    paintDot.call(this.ctx, this.dot, this.color)
   }
 }
 
