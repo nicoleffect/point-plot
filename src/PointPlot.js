@@ -1,4 +1,3 @@
-
 import Dot from './Point'
 import { isMobile, getPixelRatio, isOutside } from './utils'
 
@@ -25,7 +24,7 @@ class PointPlot {
 
     this.ctx.scale(pixelRatio, pixelRatio)
     this.ctx.translate(1 / pixelRatio, 1 / pixelRatio)
-    for (let i = 0; i < Math.floor(this.dots_count); i++) {
+    for (let i = 0; i < this.dots_count; i++) {
       this.initDot()
     }
 
@@ -38,7 +37,6 @@ class PointPlot {
     if (isOnMove) {
       this.onMove()
     }
-    // this.onClick()
   }
   initDot (tx, ty) {
     const dot = new Dot({ ctx: this.ctx, rect: this.rect, d: this.dots_distance, color: this.color, r: this.r, tx, ty })
@@ -59,41 +57,43 @@ class PointPlot {
     return (function _animateUpdate () {
       _this.ctx.clearRect(-d, -d, cw, ch) // clear canvas
       const arr = _this.dots_arr
-      for (var i = 0; i < arr.length; i++) {
-        arr[i].update(() => {
+      arr.forEach((item_i, i) => {
+        item_i.update(() => {
           if (arr.length > _this.dots_count) {
             arr.splice(i, 1)
           } else {
-            arr[i].init()
+            item_i.init()
           }
         })
         if (isConnect) {
-          for (var j = i + 1; j < arr.length; j++) {
-            const dot_ix = arr[i].dot.x
-            const dot_iy = arr[i].dot.y
-            const dot_jx = arr[j].dot.x
-            const dot_jy = arr[j].dot.y
+          const cache = [...arr]
+          cache.splice(i, 1)
+          cache.forEach((item_j, j) => {
+            const dot_i = item_i.dot
+            const dot_j = item_j.dot
+            const ix = dot_i.x
+            const iy = dot_i.y
+            const jx = dot_j.x
+            const jy = dot_j.y
             // console.log(arr[i])
-            const s = Math.sqrt(Math.pow(dot_ix - dot_jx, 2) + Math.pow(dot_iy - dot_jy, 2)) // right triangle
+            const s = Math.sqrt(Math.pow(ix - jx, 2) + Math.pow(iy - jy, 2)) // right triangle
 
             // console.log(s, d)
             if (s < d) {
               const ctx = _this.ctx
               // draw a line
               ctx.beginPath()
-              ctx.moveTo(dot_ix, dot_iy)
-              ctx.lineTo(dot_jx, dot_jy)
-              ctx.strokeStyle = 'rgba(' + _this.color + ',' + (d - s) / d + ')'
+              ctx.moveTo(ix, iy)
+              ctx.lineTo(jx, jy)
+              ctx.strokeStyle = `rgba(${_this.color},${Math.round((d - s) / d * 10) / 10})`
               ctx.strokeWidth = 1
               ctx.stroke()
               ctx.closePath()
             }
-          }
+          })
         }
+      })
 
-        // console.log(this.dotsArr.length)
-
-      }
       requestAnimFrame(_animateUpdate)
     })()
   }
@@ -107,9 +107,7 @@ class PointPlot {
       if (isOutside(tx, ty, this.dots_distance, this.rect)) {
         return
       }
-      this.initDot(
-        tx, ty
-      )
+      this.initDot(tx, ty)
       // if (this.dots_arr.length > this.dots_count) {
       //   this.dots_arr.shift()
       // }
@@ -128,7 +126,7 @@ class PointPlot {
       if (isOutside(tx, ty, this.dots_distance, this.rect)) {
         return
       }
-      this.dots_arr[0].init(tx, ty)
+      this.dots_arr[this.dots_arr.length - 1].init(tx, ty)
     }
     document.addEventListener(e_down, () => {
       document.addEventListener(e_move, _moveDot)
