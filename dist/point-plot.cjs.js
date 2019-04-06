@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.0.7
+ * point-plot v1.0.8
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -1096,7 +1096,7 @@ function () {
   return PointPlot;
 }();
 
-var pointPlot = function pointPlot(_ref) {
+function pointPlot(_ref) {
   var canvas = _ref.canvas,
       _ref$color = _ref.color,
       color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
@@ -1119,6 +1119,6 @@ var pointPlot = function pointPlot(_ref) {
     isOnClick: isOnClick,
     isOnMove: isOnMove
   });
-};
+}
 
 module.exports = pointPlot;
