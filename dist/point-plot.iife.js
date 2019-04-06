@@ -1097,7 +1097,7 @@ var pointPlot = (function () {
 	  return PointPlot;
 	}();
 
-	var pointPlot = function pointPlot(_ref) {
+	function pointPlot(_ref) {
 	  var canvas = _ref.canvas,
 	      _ref$color = _ref.color,
 	      color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
@@ -1120,7 +1120,7 @@ var pointPlot = (function () {
 	    isOnClick: isOnClick,
 	    isOnMove: isOnMove
 	  });
-	};
+	}
 
 	return pointPlot;
 
