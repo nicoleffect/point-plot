@@ -1,11 +1,12 @@
 {
   "name": "point-plot",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "dot and line, dots to dots connect",
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:dev -w",
     "test": "rollup -c --environment NODE_ENV:test",
-    "build": "rollup -c --environment NODE_ENV:prod"
+    "build": "rollup -c --environment NODE_ENV:prod",
+    "publish": "rollup -c --environment NODE_ENV:publish"
   },
   "main": "index.js",
   "license": "MIT",
@@ -38,7 +39,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-replace": "^2.1.1",
-    "rollup-plugin-uglify": "^6.0.2"
+    "rollup-plugin-terser": "^4.0.4"
   },
   "directories": {
     "example": "examples"

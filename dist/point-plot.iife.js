@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.0.8
+ * point-plot v1.0.9
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
