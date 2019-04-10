@@ -1,5 +1,5 @@
 import Dot from './Point'
-import { isMobile, setContext, isOutside } from './utils'
+import { isMobile, setContext } from './utils'
 
 class PointPlot {
   constructor ({ canvas, color, r, distance, isConnect, isOnClick, isOnMove }) {
@@ -27,11 +27,11 @@ class PointPlot {
     this.anim(isConnect)
 
     if (isOnClick) {
-      this.onClick()
+      this.onClick(canvas)
     }
 
     if (isOnMove) {
-      this.onMove()
+      this.onMove(canvas)
     }
   }
   initDot (tx, ty) {
@@ -100,15 +100,15 @@ class PointPlot {
       const touch = isMobile ? e.touches[0] : e
       const tx = touch.pageX
       const ty = touch.pageY
-      if (isOutside(tx, ty, this.dots_distance, this.rect)) {
-        return
-      }
+      // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+      //   return
+      // }
       this.initDot(tx, ty)
       // if (this.dots_arr.length > this.dots_count) {
       //   this.dots_arr.shift()
       // }
     }
-    document.addEventListener(event, _createDot)
+    canvas.addEventListener(event, _createDot)
   }
 
   onMove () {
@@ -119,16 +119,16 @@ class PointPlot {
       const touch = isMobile ? e.touches[0] : e
       const tx = touch.pageX
       const ty = touch.pageY
-      if (isOutside(tx, ty, this.dots_distance, this.rect)) {
-        return
-      }
+      // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+      //   return
+      // }
       this.dots_arr[this.dots_arr.length - 1].init(tx, ty)
     }
-    document.addEventListener(e_down, () => {
-      document.addEventListener(e_move, _moveDot)
+    canvas.addEventListener(e_down, () => {
+      canvas.addEventListener(e_move, _moveDot)
     })
-    document.addEventListener(e_up, () => {
-      document.removeEventListener(e_move, _moveDot)
+    canvas.addEventListener(e_up, () => {
+      canvas.removeEventListener(e_move, _moveDot)
     })
   }
 }

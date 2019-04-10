@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.0.9
+ * point-plot v1.1.0
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -77,11 +77,11 @@ var _descriptors = !_fails(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
-var document$1 = _global.document;
+var document = _global.document;
 // typeof document.createElement is 'object' in old IE
-var is = _isObject(document$1) && _isObject(document$1.createElement);
+var is = _isObject(document) && _isObject(document.createElement);
 var _domCreate = function (it) {
-  return is ? document$1.createElement(it) : {};
+  return is ? document.createElement(it) : {};
 };
 
 var _ie8DomDefine = !_descriptors && !_fails(function () {
@@ -380,8 +380,8 @@ var _objectDps = _descriptors ? Object.defineProperties : function definePropert
   return O;
 };
 
-var document$2 = _global.document;
-var _html = document$2 && document$2.documentElement;
+var document$1 = _global.document;
+var _html = document$1 && document$1.documentElement;
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 
@@ -957,11 +957,11 @@ function () {
     this.anim(isConnect);
 
     if (isOnClick) {
-      this.onClick();
+      this.onClick(canvas);
     }
 
     if (isOnMove) {
-      this.onMove();
+      this.onMove(canvas);
     }
   }
 
@@ -1049,11 +1049,9 @@ function () {
         // console.log(e)
         var touch = isMobile ? e.touches[0] : e;
         var tx = touch.pageX;
-        var ty = touch.pageY;
-
-        if (isOutside(tx, ty, _this2.dots_distance, _this2.rect)) {
-          return;
-        }
+        var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+        //   return
+        // }
 
         _this2.initDot(tx, ty); // if (this.dots_arr.length > this.dots_count) {
         //   this.dots_arr.shift()
@@ -1061,7 +1059,7 @@ function () {
 
       };
 
-      document.addEventListener(event, _createDot);
+      canvas.addEventListener(event, _createDot);
     }
   }, {
     key: "onMove",
@@ -1075,20 +1073,18 @@ function () {
       var _moveDot = function _moveDot(e) {
         var touch = isMobile ? e.touches[0] : e;
         var tx = touch.pageX;
-        var ty = touch.pageY;
-
-        if (isOutside(tx, ty, _this3.dots_distance, _this3.rect)) {
-          return;
-        }
+        var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+        //   return
+        // }
 
         _this3.dots_arr[_this3.dots_arr.length - 1].init(tx, ty);
       };
 
-      document.addEventListener(e_down, function () {
-        document.addEventListener(e_move, _moveDot);
+      canvas.addEventListener(e_down, function () {
+        canvas.addEventListener(e_move, _moveDot);
       });
-      document.addEventListener(e_up, function () {
-        document.removeEventListener(e_move, _moveDot);
+      canvas.addEventListener(e_up, function () {
+        canvas.removeEventListener(e_move, _moveDot);
       });
     }
   }]);

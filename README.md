@@ -2,7 +2,8 @@
 
 dot and line, dots to dots connect
 
-[demo -->](https://nicoleffect.github.io/point-plot/examples/index.html)
+[demo1 -->](https://nicoleffect.github.io/point-plot/examples/index.html)
+[demo2 -->](https://nicoleffect.github.io/point-plot/examples/index2.html)
 
 ## mode
 
@@ -30,13 +31,5 @@ import pointPlot from 'point-plot'
   isOnClick: true, // default, event for click or touchstart
   isOnMove: true// default
  })
-
-// or
-
-<script src="https://nicoleffect.github.io/point-plot/dist/point-plot.umd.min.js"></script>
-<script>
-  const canvas = document.getElementById('canvas')
-  pointPlot({ canvas })
-</script>
 
 ```
