@@ -5,20 +5,13 @@ dot and line, dots to dots connect
 [demo1 -->](https://nicoleffect.github.io/point-plot/examples/index.html)
 [demo2 -->](https://nicoleffect.github.io/point-plot/examples/index2.html)
 
-## mode
-
-```
-amd、cjs、es、iife、umd
-```
-
 ## examples
 
 ```
 // html
 <canvas id="canvas"></canvas>
-
-// js
-
+```
+```
 // npm install point-plot
 import pointPlot from 'point-plot'
 
@@ -32,4 +25,16 @@ import pointPlot from 'point-plot'
   isOnMove: true// default
  })
 
+```
+```
+// or
+
+<script src="https://nicoleffect.github.io/point-plot/dist/point-plot.iife.js"></script>
+
+pointPlot({ canvas: document.getElementById('canvas') })
+
+```
+## all modes
+```
+amd、cjs、es、iife、umd
 ```

@@ -44,5 +44,8 @@
   "directories": {
     "example": "examples"
   },
-  "author": "Nicole Wong"
+  "author": "Nicole Wong",
+  "dependencies": {
+    "canvas-retina": "^1.0.1"
+  }
 }

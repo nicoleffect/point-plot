@@ -1,12 +1,13 @@
 import Dot from './Point'
-import { isMobile, setContext } from './utils'
+import { isMobile } from './utils'
+import canvasRetina from 'canvas-retina'
 
 class PointPlot {
   constructor ({ canvas, color, r, distance, isConnect, isOnClick, isOnMove }) {
     const {
       ctx,
       rect
-    } = setContext(canvas)
+    } = canvasRetina(canvas)
     this.ctx = ctx
     this.rect = rect
     const {

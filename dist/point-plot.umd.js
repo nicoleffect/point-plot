@@ -786,28 +786,6 @@
 	var isMobile = function () {
 	  return /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
 	}();
-
-	function getPixelRatio(ctx) {
-	  var backingStore = ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
-	  return (window.devicePixelRatio || 1) / backingStore;
-	}
-
-	function setContext(canvas) {
-	  var rect = canvas.getBoundingClientRect();
-	  var width = rect.width;
-	  var height = rect.height;
-	  var ctx = canvas.getContext('2d');
-	  var pixelRatio = getPixelRatio(ctx); // console.log(pixelRatio)
-
-	  canvas.width = width * pixelRatio;
-	  canvas.height = height * pixelRatio;
-	  ctx.scale(pixelRatio, pixelRatio);
-	  ctx.translate(1 / pixelRatio, 1 / pixelRatio);
-	  return {
-	    ctx: ctx,
-	    rect: rect
-	  };
-	}
 	function isOutside(x, y, d, rect) {
 	  var left = rect.left,
 	      right = rect.right,
@@ -925,6 +903,39 @@
 	  return Dot;
 	}();
 
+	/*!
+	 * canvas-retina v1.0.0
+	 * (c) 2019 Nicole Wong
+	 * Released under the MIT License.
+	 */
+
+	/*
+	 * github: https://github.com/nicoleffect/canvas-retina
+	 * demo: https://github.com/nicoleffect/canvas-retina
+	 */
+	function getPixelRatio(ctx) {
+	  var backingStore = ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
+	  return (window.devicePixelRatio || 1) / backingStore;
+	}
+
+	function canvasRetina(canvas) {
+	  var rect = canvas.getBoundingClientRect();
+	  var width = rect.width;
+	  var height = rect.height;
+	  var ctx = canvas.getContext('2d');
+	  var pixelRatio = getPixelRatio(ctx);
+	  canvas.width = width * pixelRatio;
+	  canvas.height = height * pixelRatio;
+	  ctx.scale(pixelRatio, pixelRatio);
+	  ctx.translate(1 / pixelRatio, 1 / pixelRatio);
+	  return {
+	    ctx: ctx,
+	    rect: rect
+	  };
+	}
+
+	var canvasRetina$1 = canvasRetina;
+
 	var PointPlot =
 	/*#__PURE__*/
 	function () {
@@ -939,9 +950,9 @@
 
 	    classCallCheck(this, PointPlot);
 
-	    var _setContext = setContext(canvas),
-	        ctx = _setContext.ctx,
-	        rect = _setContext.rect;
+	    var _canvasRetina = canvasRetina$1(canvas),
+	        ctx = _canvasRetina.ctx,
+	        rect = _canvasRetina.rect;
 
 	    this.ctx = ctx;
 	    this.rect = rect;
