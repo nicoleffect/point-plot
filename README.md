@@ -29,7 +29,7 @@ import pointPlot from 'point-plot'
 ```
 // or
 
-<script src="https://nicoleffect.github.io/point-plot/dist/point-plot.iife.js"></script>
+<script src="https://nicoleffect.github.io/point-plot/dist/point-plot.iife.min.js"></script>
 
 pointPlot({ canvas: document.getElementById('canvas') })
 
