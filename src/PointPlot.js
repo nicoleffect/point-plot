@@ -94,7 +94,7 @@ class PointPlot {
       requestAnimFrame(_animateUpdate)
     })()
   }
-  onClick () {
+  onClick (canvas) {
     const event = isMobile ? 'touchstart' : 'click'
     const _createDot = (e) => {
       // console.log(e)
@@ -112,7 +112,7 @@ class PointPlot {
     canvas.addEventListener(event, _createDot)
   }
 
-  onMove () {
+  onMove (canvas) {
     const e_down = isMobile ? 'touchstart' : 'mousedown'
     const e_move = isMobile ? 'touchmove' : 'mousemove'
     const e_up = isMobile ? 'touchend' : 'mouseup'

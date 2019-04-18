@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.1.1
+ * point-plot v1.1.2
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -1055,7 +1055,7 @@
 	    }
 	  }, {
 	    key: "onClick",
-	    value: function onClick() {
+	    value: function onClick(canvas) {
 	      var _this2 = this;
 
 	      var event = isMobile ? 'touchstart' : 'click';
@@ -1078,7 +1078,7 @@
 	    }
 	  }, {
 	    key: "onMove",
-	    value: function onMove() {
+	    value: function onMove(canvas) {
 	      var _this3 = this;
 
 	      var e_down = isMobile ? 'touchstart' : 'mousedown';
