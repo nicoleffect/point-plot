@@ -15,7 +15,7 @@ class PointPlot {
       height
     } = this.rect
 
-    this.dots_count = Math.floor(width * height / (distance * 100))
+    this.dots_count = Math.floor(width * height / (distance * 160))
     this.dots_distance = distance
     this.dots_arr = []
     this.color = color

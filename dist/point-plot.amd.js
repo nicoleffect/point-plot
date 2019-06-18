@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.1.2
+ * point-plot v1.1.3
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -955,7 +955,7 @@ define(function () { 'use strict';
 	    var _this$rect = this.rect,
 	        width = _this$rect.width,
 	        height = _this$rect.height;
-	    this.dots_count = Math.floor(width * height / (distance * 100));
+	    this.dots_count = Math.floor(width * height / (distance * 160));
 	    this.dots_distance = distance;
 	    this.dots_arr = [];
 	    this.color = color;
@@ -1110,7 +1110,7 @@ define(function () { 'use strict';
 	      _ref$r = _ref.r,
 	      r = _ref$r === void 0 ? 3 : _ref$r,
 	      _ref$distance = _ref.distance,
-	      distance = _ref$distance === void 0 ? 100 : _ref$distance,
+	      distance = _ref$distance === void 0 ? 80 : _ref$distance,
 	      _ref$isConnect = _ref.isConnect,
 	      isConnect = _ref$isConnect === void 0 ? true : _ref$isConnect,
 	      _ref$isOnClick = _ref.isOnClick,

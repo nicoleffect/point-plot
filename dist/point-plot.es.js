@@ -1,5 +1,5 @@
 /*!
- * point-plot v1.1.2
+ * point-plot v1.1.3
  * (c) 2019 Nicole Wong
  * Released under the MIT License.
  */
@@ -8,22 +8,22 @@
  * github: https://github.com/nicoleffect/point-plot
  * demo: https://nicoleffect.github.io/point-plot/examples/index.html
  */
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
+function createCommonjsModule (fn, module) {
+  return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
 var _global = createCommonjsModule(function (module) {
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self
-  // eslint-disable-next-line no-new-func
-  : Function('return this')();
-if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+  // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+  var global = module.exports = typeof window != 'undefined' && window.Math == Math
+    ? window : typeof self != 'undefined' && self.Math == Math ? self
+      // eslint-disable-next-line no-new-func
+      : Function('return this')();
+  if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 });
 
 var _core = createCommonjsModule(function (module) {
-var core = module.exports = { version: '2.6.5' };
-if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+  var core = module.exports = { version: '2.6.5' };
+  if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 });
 var _core_1 = _core.version;
 
@@ -101,7 +101,7 @@ var _toPrimitive = function (it, S) {
 
 var dP = Object.defineProperty;
 
-var f = _descriptors ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+var f = _descriptors ? Object.defineProperty : function defineProperty (O, P, Attributes) {
   _anObject(O);
   P = _toPrimitive(P, true);
   _anObject(Attributes);
@@ -114,7 +114,7 @@ var f = _descriptors ? Object.defineProperty : function defineProperty(O, P, Att
 };
 
 var _objectDp = {
-	f: f
+  f: f
 };
 
 var _propertyDesc = function (bitmap, value) {
@@ -160,23 +160,23 @@ var $export = function (type, name, source) {
     out = own ? target[key] : source[key];
     // prevent global pollution for namespaces
     exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
-    : IS_BIND && own ? _ctx(out, _global)
-    // wrap global constructors for prevent change them in library
-    : IS_WRAP && target[key] == out ? (function (C) {
-      var F = function (a, b, c) {
-        if (this instanceof C) {
-          switch (arguments.length) {
-            case 0: return new C();
-            case 1: return new C(a);
-            case 2: return new C(a, b);
-          } return new C(a, b, c);
-        } return C.apply(this, arguments);
-      };
-      F[PROTOTYPE] = C[PROTOTYPE];
-      return F;
-    // make static versions for prototype methods
-    })(out) : IS_PROTO && typeof out == 'function' ? _ctx(Function.call, out) : out;
+      // bind timers to global for call from export context
+      : IS_BIND && own ? _ctx(out, _global)
+        // wrap global constructors for prevent change them in library
+        : IS_WRAP && target[key] == out ? (function (C) {
+          var F = function (a, b, c) {
+            if (this instanceof C) {
+              switch (arguments.length) {
+                case 0: return new C();
+                case 1: return new C(a);
+                case 2: return new C(a, b);
+              } return new C(a, b, c);
+            } return C.apply(this, arguments);
+          };
+          F[PROTOTYPE] = C[PROTOTYPE];
+          return F;
+          // make static versions for prototype methods
+        })(out) : IS_PROTO && typeof out == 'function' ? _ctx(Function.call, out) : out;
     // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
     if (IS_PROTO) {
       (exports.virtual || (exports.virtual = {}))[key] = out;
@@ -204,7 +204,7 @@ var _cof = function (it) {
 
 // 7.2.2 IsArray(argument)
 
-var _isArray = Array.isArray || function isArray(arg) {
+var _isArray = Array.isArray || function isArray (arg) {
   return _cof(arg) == 'Array';
 };
 
@@ -217,7 +217,7 @@ var isArray = _core.Array.isArray;
 
 var isArray$1 = isArray;
 
-function _arrayWithoutHoles(arr) {
+function _arrayWithoutHoles (arr) {
   if (isArray$1(arr)) {
     for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
       arr2[i] = arr[i];
@@ -307,24 +307,24 @@ var _arrayIncludes = function (IS_INCLUDES) {
       value = O[index++];
       // eslint-disable-next-line no-self-compare
       if (value != value) return true;
-    // Array#indexOf ignores holes, Array#includes - not
-    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      // Array#indexOf ignores holes, Array#includes - not
+    } else for (; length > index; index++) if (IS_INCLUDES || index in O) {
       if (O[index] === el) return IS_INCLUDES || index || 0;
     } return !IS_INCLUDES && -1;
   };
 };
 
 var _shared = createCommonjsModule(function (module) {
-var SHARED = '__core-js_shared__';
-var store = _global[SHARED] || (_global[SHARED] = {});
+  var SHARED = '__core-js_shared__';
+  var store = _global[SHARED] || (_global[SHARED] = {});
 
-(module.exports = function (key, value) {
-  return store[key] || (store[key] = value !== undefined ? value : {});
-})('versions', []).push({
-  version: _core.version,
-  mode: 'pure',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
-});
+  (module.exports = function (key, value) {
+    return store[key] || (store[key] = value !== undefined ? value : {});
+  })('versions', []).push({
+    version: _core.version,
+    mode: 'pure',
+    copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  });
 });
 
 var id = 0;
@@ -364,11 +364,11 @@ var _enumBugKeys = (
 
 
 
-var _objectKeys = Object.keys || function keys(O) {
+var _objectKeys = Object.keys || function keys (O) {
   return _objectKeysInternal(O, _enumBugKeys);
 };
 
-var _objectDps = _descriptors ? Object.defineProperties : function defineProperties(O, Properties) {
+var _objectDps = _descriptors ? Object.defineProperties : function defineProperties (O, Properties) {
   _anObject(O);
   var keys = _objectKeys(Properties);
   var length = keys.length;
@@ -411,7 +411,7 @@ var createDict = function () {
   return createDict();
 };
 
-var _objectCreate = Object.create || function create(O, Properties) {
+var _objectCreate = Object.create || function create (O, Properties) {
   var result;
   if (O !== null) {
     Empty[PROTOTYPE$1] = _anObject(O);
@@ -424,17 +424,17 @@ var _objectCreate = Object.create || function create(O, Properties) {
 };
 
 var _wks = createCommonjsModule(function (module) {
-var store = _shared('wks');
+  var store = _shared('wks');
 
-var Symbol = _global.Symbol;
-var USE_SYMBOL = typeof Symbol == 'function';
+  var Symbol = _global.Symbol;
+  var USE_SYMBOL = typeof Symbol == 'function';
 
-var $exports = module.exports = function (name) {
-  return store[name] || (store[name] =
-    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : _uid)('Symbol.' + name));
-};
+  var $exports = module.exports = function (name) {
+    return store[name] || (store[name] =
+      USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : _uid)('Symbol.' + name));
+  };
 
-$exports.store = store;
+  $exports.store = store;
 });
 
 var def = _objectDp.f;
@@ -488,9 +488,9 @@ var _iterDefine = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORC
   var getMethod = function (kind) {
     if (!BUGGY && kind in proto) return proto[kind];
     switch (kind) {
-      case KEYS: return function keys() { return new Constructor(this, kind); };
-      case VALUES: return function values() { return new Constructor(this, kind); };
-    } return function entries() { return new Constructor(this, kind); };
+      case KEYS: return function keys () { return new Constructor(this, kind); };
+      case VALUES: return function values () { return new Constructor(this, kind); };
+    } return function entries () { return new Constructor(this, kind); };
   };
   var TAG = NAME + ' Iterator';
   var DEF_VALUES = DEFAULT == VALUES;
@@ -512,7 +512,7 @@ var _iterDefine = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORC
   // fix Array#{values, @@iterator}.name in V8 / FF
   if (DEF_VALUES && $native && $native.name !== VALUES) {
     VALUES_BUG = true;
-    $default = function values() { return $native.call(this); };
+    $default = function values () { return $native.call(this); };
   }
   // Define iterator
   if ((FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
@@ -540,7 +540,7 @@ var $at = _stringAt(true);
 _iterDefine(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
+  // 21.1.5.2.1 %StringIteratorPrototype%.next()
 }, function () {
   var O = this._t;
   var index = this._i;
@@ -556,7 +556,7 @@ _iterDefine(String, 'String', function (iterated) {
 var _iterCall = function (iterator, fn, value, entries) {
   try {
     return entries ? fn(_anObject(value)[0], value[1]) : fn(value);
-  // 7.4.6 IteratorClose(iterator, completion)
+    // 7.4.6 IteratorClose(iterator, completion)
   } catch (e) {
     var ret = iterator['return'];
     if (ret !== undefined) _anObject(ret.call(iterator));
@@ -596,10 +596,10 @@ var _classof = function (it) {
   return it === undefined ? 'Undefined' : it === null ? 'Null'
     // @@toStringTag case
     : typeof (T = tryGet(O = Object(it), TAG$1)) == 'string' ? T
-    // builtinTag case
-    : ARG ? _cof(O)
-    // ES3 arguments fallback
-    : (B = _cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+      // builtinTag case
+      : ARG ? _cof(O)
+        // ES3 arguments fallback
+        : (B = _cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
 };
 
 var ITERATOR$2 = _wks('iterator');
@@ -633,7 +633,7 @@ var _iterDetect = function (exec, skipClosing) {
 
 _export(_export.S + _export.F * !_iterDetect(function (iter) { }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
-  from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+  from: function from (arrayLike /* , mapfn = undefined, thisArg = undefined */) {
     var O = _toObject(arrayLike);
     var C = typeof this == 'function' ? this : Array;
     var aLen = arguments.length;
@@ -675,7 +675,7 @@ var es6_array_iterator = _iterDefine(Array, 'Array', function (iterated, kind) {
   this._t = _toIobject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
-// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+  // 22.1.5.2.1 %ArrayIteratorPrototype%.next()
 }, function () {
   var O = this._t;
   var kind = this._k;
@@ -722,25 +722,25 @@ var isIterable = core_isIterable;
 
 var isIterable$1 = isIterable;
 
-function _iterableToArray(iter) {
+function _iterableToArray (iter) {
   if (isIterable$1(Object(iter)) || Object.prototype.toString.call(iter) === "[object Arguments]") return from_1$1(iter);
 }
 
 var iterableToArray = _iterableToArray;
 
-function _nonIterableSpread() {
+function _nonIterableSpread () {
   throw new TypeError("Invalid attempt to spread non-iterable instance");
 }
 
 var nonIterableSpread = _nonIterableSpread;
 
-function _toConsumableArray(arr) {
+function _toConsumableArray (arr) {
   return arrayWithoutHoles(arr) || iterableToArray(arr) || nonIterableSpread();
 }
 
 var toConsumableArray = _toConsumableArray;
 
-function _classCallCheck(instance, Constructor) {
+function _classCallCheck (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
@@ -752,13 +752,13 @@ var classCallCheck = _classCallCheck;
 _export(_export.S + _export.F * !_descriptors, 'Object', { defineProperty: _objectDp.f });
 
 var $Object = _core.Object;
-var defineProperty = function defineProperty(it, key, desc) {
+var defineProperty = function defineProperty (it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
 
 var defineProperty$1 = defineProperty;
 
-function _defineProperties(target, props) {
+function _defineProperties (target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
@@ -769,7 +769,7 @@ function _defineProperties(target, props) {
   }
 }
 
-function _createClass(Constructor, protoProps, staticProps) {
+function _createClass (Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
@@ -780,11 +780,11 @@ var createClass = _createClass;
 var isMobile = function () {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
 }();
-function isOutside(x, y, d, rect) {
+function isOutside (x, y, d, rect) {
   var left = rect.left,
-      right = rect.right,
-      top = rect.top,
-      bottom = rect.bottom;
+    right = rect.right,
+    top = rect.top,
+    bottom = rect.bottom;
 
   if (x < left - d || x > right + d || y < top - d || y > bottom + d) {
     // console.log(true)
@@ -795,11 +795,11 @@ function isOutside(x, y, d, rect) {
   return false;
 }
 
-function paintDot(dot, color) {
+function paintDot (dot, color) {
   // console.log(dot)
   var x = dot.x,
-      y = dot.y,
-      r = dot.r;
+    y = dot.y,
+    r = dot.r;
   this.fillStyle = 'rgba(' + color + ', 0.8)';
   this.beginPath();
   this.arc(x, y, r, 0, Math.PI * 2);
@@ -807,15 +807,15 @@ function paintDot(dot, color) {
   this.closePath();
 }
 
-function getDot(_ref) {
+function getDot (_ref) {
   var rect = _ref.rect,
-      r = _ref.r,
-      _ref$x = _ref.x,
-      x = _ref$x === void 0 ? '' : _ref$x,
-      _ref$y = _ref.y,
-      y = _ref$y === void 0 ? '' : _ref$y;
+    r = _ref.r,
+    _ref$x = _ref.x,
+    x = _ref$x === void 0 ? '' : _ref$x,
+    _ref$y = _ref.y,
+    y = _ref$y === void 0 ? '' : _ref$y;
   var width = rect.width,
-      height = rect.height;
+    height = rect.height;
   return {
     x: x || Math.random() * width,
     y: y || Math.random() * height,
@@ -826,10 +826,10 @@ function getDot(_ref) {
 }
 
 var Dot =
-/*#__PURE__*/
-function () {
-  function Dot(_ref2) {
-    var ctx = _ref2.ctx,
+  /*#__PURE__*/
+  function () {
+    function Dot (_ref2) {
+      var ctx = _ref2.ctx,
         rect = _ref2.rect,
         color = _ref2.color,
         r = _ref2.r,
@@ -839,63 +839,63 @@ function () {
         _ref2$ty = _ref2.ty,
         ty = _ref2$ty === void 0 ? '' : _ref2$ty;
 
-    classCallCheck(this, Dot);
+      classCallCheck(this, Dot);
 
-    this.ctx = ctx; // canvas
+      this.ctx = ctx; // canvas
 
-    this.rect = rect; // canvas rect
+      this.rect = rect; // canvas rect
 
-    this.r = r; // radius for a basic dot
+      this.r = r; // radius for a basic dot
 
-    this.color = color; // color for dot
+      this.color = color; // color for dot
 
-    this.d = d;
-    this.dot = {};
-    this.init(tx, ty);
-  }
-
-  createClass(Dot, [{
-    key: "init",
-    value: function init() {
-      var tx = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      var ty = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-      this.dot = getDot({
-        rect: this.rect,
-        r: this.r,
-        x: tx,
-        y: ty
-      });
-      paintDot.call(this.ctx, this.dot, this.color);
+      this.d = d;
+      this.dot = {};
+      this.init(tx, ty);
     }
-  }, {
-    key: "update",
-    value: function update(callback) {
-      var _this$dot = this.dot,
+
+    createClass(Dot, [{
+      key: "init",
+      value: function init () {
+        var tx = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+        var ty = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+        this.dot = getDot({
+          rect: this.rect,
+          r: this.r,
+          x: tx,
+          y: ty
+        });
+        paintDot.call(this.ctx, this.dot, this.color);
+      }
+    }, {
+      key: "update",
+      value: function update (callback) {
+        var _this$dot = this.dot,
           x = _this$dot.x,
           y = _this$dot.y,
           r = _this$dot.r,
           sx = _this$dot.sx,
           sy = _this$dot.sy; // console.log(x, y)
-      // out
+        // out
 
-      var nx = x + sx;
-      var ny = y + sy;
+        var nx = x + sx;
+        var ny = y + sy;
 
-      if (isOutside(nx, ny, this.d, this.rect)) {
-        callback && callback(); // this.init()
+        if (isOutside(nx, ny, this.d, this.rect)) {
+          callback && callback(); // this.init()
 
-        return;
+          return;
+        }
+
+        this.dot.x = nx;
+        this.dot.y = ny; // console.log(sx, sy)
+
+        paintDot.call(this.ctx, this.dot, this.color);
       }
+    }]);
 
-      this.dot.x = nx;
-      this.dot.y = ny; // console.log(sx, sy)
-
-      paintDot.call(this.ctx, this.dot, this.color);
-    }
-  }]);
-
-  return Dot;
-}();
+    return Dot;
+  }();
 
 /*!
  * canvas-retina v1.0.0
@@ -907,12 +907,12 @@ function () {
  * github: https://github.com/nicoleffect/canvas-retina
  * demo: https://github.com/nicoleffect/canvas-retina
  */
-function getPixelRatio(ctx) {
+function getPixelRatio (ctx) {
   var backingStore = ctx.backingStorePixelRatio || ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
   return (window.devicePixelRatio || 1) / backingStore;
 }
 
-function canvasRetina(canvas) {
+function canvasRetina (canvas) {
   var rect = canvas.getBoundingClientRect();
   var width = rect.width;
   var height = rect.height;
@@ -931,10 +931,10 @@ function canvasRetina(canvas) {
 var canvasRetina$1 = canvasRetina;
 
 var PointPlot =
-/*#__PURE__*/
-function () {
-  function PointPlot(_ref) {
-    var canvas = _ref.canvas,
+  /*#__PURE__*/
+  function () {
+    function PointPlot (_ref) {
+      var canvas = _ref.canvas,
         color = _ref.color,
         r = _ref.r,
         distance = _ref.distance,
@@ -942,179 +942,179 @@ function () {
         isOnClick = _ref.isOnClick,
         isOnMove = _ref.isOnMove;
 
-    classCallCheck(this, PointPlot);
+      classCallCheck(this, PointPlot);
 
-    var _canvasRetina = canvasRetina$1(canvas),
+      var _canvasRetina = canvasRetina$1(canvas),
         ctx = _canvasRetina.ctx,
         rect = _canvasRetina.rect;
 
-    this.ctx = ctx;
-    this.rect = rect;
-    var _this$rect = this.rect,
+      this.ctx = ctx;
+      this.rect = rect;
+      var _this$rect = this.rect,
         width = _this$rect.width,
         height = _this$rect.height;
-    this.dots_count = Math.floor(width * height / (distance * 100));
-    this.dots_distance = distance;
-    this.dots_arr = [];
-    this.color = color;
-    this.r = r;
+      this.dots_count = Math.floor(width * height / (distance * 160));
+      this.dots_distance = distance;
+      this.dots_arr = [];
+      this.color = color;
+      this.r = r;
 
-    for (var i = 0; i < this.dots_count; i++) {
-      this.initDot();
+      for (var i = 0; i < this.dots_count; i++) {
+        this.initDot();
+      }
+
+      this.anim(isConnect);
+
+      if (isOnClick) {
+        this.onClick(canvas);
+      }
+
+      if (isOnMove) {
+        this.onMove(canvas);
+      }
     }
 
-    this.anim(isConnect);
+    createClass(PointPlot, [{
+      key: "initDot",
+      value: function initDot (tx, ty) {
+        var dot = new Dot({
+          ctx: this.ctx,
+          rect: this.rect,
+          d: this.dots_distance,
+          color: this.color,
+          r: this.r,
+          tx: tx,
+          ty: ty
+        });
+        this.dots_arr.push(dot); // console.log(this.dots_arr)
+      }
+    }, {
+      key: "anim",
+      value: function anim (isConnect) {
+        var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
-    if (isOnClick) {
-      this.onClick(canvas);
-    }
+        var _this = this;
 
-    if (isOnMove) {
-      this.onMove(canvas);
-    }
-  }
-
-  createClass(PointPlot, [{
-    key: "initDot",
-    value: function initDot(tx, ty) {
-      var dot = new Dot({
-        ctx: this.ctx,
-        rect: this.rect,
-        d: this.dots_distance,
-        color: this.color,
-        r: this.r,
-        tx: tx,
-        ty: ty
-      });
-      this.dots_arr.push(dot); // console.log(this.dots_arr)
-    }
-  }, {
-    key: "anim",
-    value: function anim(isConnect) {
-      var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-
-      var _this = this;
-
-      var _this$rect2 = this.rect,
+        var _this$rect2 = this.rect,
           width = _this$rect2.width,
           height = _this$rect2.height;
-      var d = this.dots_distance;
-      var cw = width + d;
-      var ch = height + d;
-      return function _animateUpdate() {
-        _this.ctx.clearRect(-d, -d, cw, ch); // clear canvas
+        var d = this.dots_distance;
+        var cw = width + d;
+        var ch = height + d;
+        return function _animateUpdate () {
+          _this.ctx.clearRect(-d, -d, cw, ch); // clear canvas
 
 
-        var arr = _this.dots_arr;
-        arr.forEach(function (item_i, i) {
-          item_i.update(function () {
-            if (arr.length > _this.dots_count) {
-              arr.splice(i, 1);
-            } else {
-              item_i.init();
-            }
-          });
-
-          if (isConnect) {
-            var cache = toConsumableArray(arr);
-
-            cache.splice(i, 1);
-            cache.forEach(function (item_j, j) {
-              var dot_i = item_i.dot;
-              var dot_j = item_j.dot;
-              var ix = dot_i.x;
-              var iy = dot_i.y;
-              var jx = dot_j.x;
-              var jy = dot_j.y; // console.log(arr[i])
-
-              var s = Math.sqrt(Math.pow(ix - jx, 2) + Math.pow(iy - jy, 2)); // right triangle
-              // console.log(s, d)
-
-              if (s < d) {
-                var ctx = _this.ctx; // draw a line
-
-                ctx.beginPath();
-                ctx.moveTo(ix, iy);
-                ctx.lineTo(jx, jy);
-                ctx.strokeStyle = "rgba(".concat(_this.color, ",").concat(Math.round((d - s) / d * 10) / 10, ")");
-                ctx.strokeWidth = 1;
-                ctx.stroke();
-                ctx.closePath();
+          var arr = _this.dots_arr;
+          arr.forEach(function (item_i, i) {
+            item_i.update(function () {
+              if (arr.length > _this.dots_count) {
+                arr.splice(i, 1);
+              } else {
+                item_i.init();
               }
             });
-          }
+
+            if (isConnect) {
+              var cache = toConsumableArray(arr);
+
+              cache.splice(i, 1);
+              cache.forEach(function (item_j, j) {
+                var dot_i = item_i.dot;
+                var dot_j = item_j.dot;
+                var ix = dot_i.x;
+                var iy = dot_i.y;
+                var jx = dot_j.x;
+                var jy = dot_j.y; // console.log(arr[i])
+
+                var s = Math.sqrt(Math.pow(ix - jx, 2) + Math.pow(iy - jy, 2)); // right triangle
+                // console.log(s, d)
+
+                if (s < d) {
+                  var ctx = _this.ctx; // draw a line
+
+                  ctx.beginPath();
+                  ctx.moveTo(ix, iy);
+                  ctx.lineTo(jx, jy);
+                  ctx.strokeStyle = "rgba(".concat(_this.color, ",").concat(Math.round((d - s) / d * 10) / 10, ")");
+                  ctx.strokeWidth = 1;
+                  ctx.stroke();
+                  ctx.closePath();
+                }
+              });
+            }
+          });
+          requestAnimFrame(_animateUpdate);
+        }();
+      }
+    }, {
+      key: "onClick",
+      value: function onClick (canvas) {
+        var _this2 = this;
+
+        var event = isMobile ? 'touchstart' : 'click';
+
+        var _createDot = function _createDot (e) {
+          // console.log(e)
+          var touch = isMobile ? e.touches[0] : e;
+          var tx = touch.pageX;
+          var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+          //   return
+          // }
+
+          _this2.initDot(tx, ty); // if (this.dots_arr.length > this.dots_count) {
+          //   this.dots_arr.shift()
+          // }
+
+        };
+
+        canvas.addEventListener(event, _createDot);
+      }
+    }, {
+      key: "onMove",
+      value: function onMove (canvas) {
+        var _this3 = this;
+
+        var e_down = isMobile ? 'touchstart' : 'mousedown';
+        var e_move = isMobile ? 'touchmove' : 'mousemove';
+        var e_up = isMobile ? 'touchend' : 'mouseup';
+
+        var _moveDot = function _moveDot (e) {
+          var touch = isMobile ? e.touches[0] : e;
+          var tx = touch.pageX;
+          var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
+          //   return
+          // }
+
+          _this3.dots_arr[_this3.dots_arr.length - 1].init(tx, ty);
+        };
+
+        canvas.addEventListener(e_down, function () {
+          canvas.addEventListener(e_move, _moveDot);
         });
-        requestAnimFrame(_animateUpdate);
-      }();
-    }
-  }, {
-    key: "onClick",
-    value: function onClick(canvas) {
-      var _this2 = this;
+        canvas.addEventListener(e_up, function () {
+          canvas.removeEventListener(e_move, _moveDot);
+        });
+      }
+    }]);
 
-      var event = isMobile ? 'touchstart' : 'click';
+    return PointPlot;
+  }();
 
-      var _createDot = function _createDot(e) {
-        // console.log(e)
-        var touch = isMobile ? e.touches[0] : e;
-        var tx = touch.pageX;
-        var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
-        //   return
-        // }
-
-        _this2.initDot(tx, ty); // if (this.dots_arr.length > this.dots_count) {
-        //   this.dots_arr.shift()
-        // }
-
-      };
-
-      canvas.addEventListener(event, _createDot);
-    }
-  }, {
-    key: "onMove",
-    value: function onMove(canvas) {
-      var _this3 = this;
-
-      var e_down = isMobile ? 'touchstart' : 'mousedown';
-      var e_move = isMobile ? 'touchmove' : 'mousemove';
-      var e_up = isMobile ? 'touchend' : 'mouseup';
-
-      var _moveDot = function _moveDot(e) {
-        var touch = isMobile ? e.touches[0] : e;
-        var tx = touch.pageX;
-        var ty = touch.pageY; // if (isOutside(tx, ty, this.dots_distance, this.rect)) {
-        //   return
-        // }
-
-        _this3.dots_arr[_this3.dots_arr.length - 1].init(tx, ty);
-      };
-
-      canvas.addEventListener(e_down, function () {
-        canvas.addEventListener(e_move, _moveDot);
-      });
-      canvas.addEventListener(e_up, function () {
-        canvas.removeEventListener(e_move, _moveDot);
-      });
-    }
-  }]);
-
-  return PointPlot;
-}();
-
-function pointPlot(_ref) {
+function pointPlot (_ref) {
   var canvas = _ref.canvas,
-      _ref$color = _ref.color,
-      color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
-      _ref$r = _ref.r,
-      r = _ref$r === void 0 ? 3 : _ref$r,
-      _ref$distance = _ref.distance,
-      distance = _ref$distance === void 0 ? 100 : _ref$distance,
-      _ref$isConnect = _ref.isConnect,
-      isConnect = _ref$isConnect === void 0 ? true : _ref$isConnect,
-      _ref$isOnClick = _ref.isOnClick,
-      isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
-      _ref$isOnMove = _ref.isOnMove,
-      isOnMove = _ref$isOnMove === void 0 ? true : _ref$isOnMove;
+    _ref$color = _ref.color,
+    color = _ref$color === void 0 ? '255, 255, 255' : _ref$color,
+    _ref$r = _ref.r,
+    r = _ref$r === void 0 ? 3 : _ref$r,
+    _ref$distance = _ref.distance,
+    distance = _ref$distance === void 0 ? 80 : _ref$distance,
+    _ref$isConnect = _ref.isConnect,
+    isConnect = _ref$isConnect === void 0 ? true : _ref$isConnect,
+    _ref$isOnClick = _ref.isOnClick,
+    isOnClick = _ref$isOnClick === void 0 ? true : _ref$isOnClick,
+    _ref$isOnMove = _ref.isOnMove,
+    isOnMove = _ref$isOnMove === void 0 ? true : _ref$isOnMove;
   return new PointPlot({
     canvas: canvas,
     color: color,
